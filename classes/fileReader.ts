@@ -15,7 +15,7 @@ export class FileReader {
         const content = readFileSync(this.pathname, "utf-8")
         const linesContent = content.split("\n")
 
-        return this.operateInLines(linesContent, linesEffect)
+        return this.operateInLines(linesContent.filter(i => i !== ""), linesEffect)
     }
 
     private operateInLines<T>(data: string[], afterEffect: (arg: string) => T) {
